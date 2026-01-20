@@ -28,6 +28,7 @@ class BookService
             return $book;
         } catch (Exception $e) {
             $transaction->rollback();
+
             throw $e;
         }
     }
@@ -55,6 +56,7 @@ class BookService
             return $book;
         } catch (Exception $e) {
             $transaction->rollback();
+
             throw $e;
         }
     }
@@ -62,6 +64,7 @@ class BookService
     public function delete(Book $book): void
     {
         $this->deleteCover($book->cover_image);
+
         $book->delete();
     }
 

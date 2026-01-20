@@ -59,16 +59,17 @@ class AuthorService
 
     public function getTopAuthors(int $year, int $limit = 10): array
     {
-        $sql = "
-            SELECT a.*, COUNT(ba.book_id) as books_count
-            FROM author a
-            INNER JOIN book_author ba ON a.id = ba.author_id
-            INNER JOIN book b ON ba.book_id = b.id
-            WHERE b.year = :year
-            GROUP BY a.id
-            ORDER BY books_count DESC
+        $sql = <<<SQL
+            SELECT
+                a.*, COUNT(ba.`book_id`) as books_count
+            FROM `author` a
+            INNER JOIN `book_author` ba ON a.`id` = ba.`author_id`
+            INNER JOIN `book` b ON ba.`book_id` = b.`id`
+            WHERE b.`year` = :year
+            GROUP BY a.`id`
+            ORDER BY `books_count` DESC
             LIMIT :limit
-        ";
+        SQL;
 
         return Yii::app()->db->createCommand($sql)
             ->bindValue(':year', $year)
