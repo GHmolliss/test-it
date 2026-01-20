@@ -20,7 +20,7 @@ class LoginRequest extends AbstractRequest
     public static function fromPost(array $data): self
     {
         $request = new self();
-        
+
         $request->phone = trim((string)($data['phone'] ?? ''));
         $request->password = (string)($data['password'] ?? '');
 

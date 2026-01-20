@@ -139,7 +139,7 @@ abstract class AbstractRequest
     protected function validateRequired(string $attribute, mixed $value, array $rule): void
     {
         $isEmpty = $value === null || $value === '' || $value === [];
-        
+
         if ($isEmpty) {
             $message = $rule['message'] ?? "{$this->getLabel($attribute)} не может быть пустым";
             $this->addError($attribute, $message);
@@ -230,7 +230,7 @@ abstract class AbstractRequest
         if (isset($rule['types'])) {
             $allowedTypes = is_array($rule['types']) ? $rule['types'] : explode(',', $rule['types']);
             $extension = strtolower($value->extensionName);
-            
+
             if (!in_array($extension, $allowedTypes, true)) {
                 $this->addError($attribute, "{$this->getLabel($attribute)}: недопустимый тип файла");
             }

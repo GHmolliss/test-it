@@ -7,9 +7,6 @@ namespace App\Interfaces\Web\Actions\Site;
 use App\Interfaces\Web\Actions\AbstractAction;
 use BookService;
 
-/**
- * Action для главной страницы
- */
 class IndexAction extends AbstractAction
 {
     public function run(): void

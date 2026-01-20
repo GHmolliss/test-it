@@ -29,13 +29,13 @@ class CreateBookRequest extends AbstractRequest
     public static function fromPost(array $data, string $formName = 'BookForm'): static
     {
         $request = new static();
-        
+
         $request->title = trim((string)($data['title'] ?? ''));
         $request->year = $data['year'] ?? '';
         $request->description = trim((string)($data['description'] ?? ''));
         $request->isbn = trim((string)($data['isbn'] ?? ''));
         $request->author_ids = $data['author_ids'] ?? [];
-        
+
         // Получение загруженного файла через временную форму
         $tempForm = new BookForm();
         $request->cover_image = CUploadedFile::getInstance($tempForm, 'cover_image');
@@ -104,11 +104,11 @@ class CreateBookRequest extends AbstractRequest
         if ($this->cover_image !== null) {
             $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
             $extension = strtolower($this->cover_image->extensionName);
-            
+
             if (!in_array($extension, $allowedTypes, true)) {
                 $this->addError('cover_image', 'Обложка: допустимые форматы - JPG, PNG, GIF');
             }
-            
+
             if ($this->cover_image->size > 5242880) {
                 $this->addError('cover_image', 'Обложка: размер файла не должен превышать 5 МБ');
             }

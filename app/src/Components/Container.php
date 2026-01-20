@@ -10,10 +10,10 @@ namespace App\Components;
 class Container
 {
     private static ?Container $instance = null;
-    
+
     /** @var array<string, callable> */
     private array $factories = [];
-    
+
     /** @var array<string, object> */
     private array $instances = [];
 

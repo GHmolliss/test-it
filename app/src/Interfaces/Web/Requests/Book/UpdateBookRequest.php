@@ -36,7 +36,7 @@ class UpdateBookRequest extends CreateBookRequest
     public static function fromBook(Book $book): self
     {
         $request = new self();
-        
+
         $request->book = $book;
         $request->title = $book->title;
         $request->year = $book->year;

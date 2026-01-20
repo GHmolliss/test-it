@@ -71,9 +71,11 @@ class NotificationQueue extends CActiveRecord
     public function markAsFailed(): void
     {
         $this->attempts++;
+
         if ($this->attempts >= 3) {
             $this->status = self::STATUS_FAILED;
         }
+
         $this->save(false);
     }
 }

@@ -10,9 +10,6 @@ use Book;
 use BookService;
 use CController;
 
-/**
- * Action для удаления книги
- */
 class DeleteBookAction extends AbstractAction
 {
     use EntityLoaderTrait;
@@ -40,7 +37,7 @@ class DeleteBookAction extends AbstractAction
         );
 
         $bookService->delete($book);
-        
+
         $this->setFlash('success', 'Книга удалена');
         $this->redirect(['book/index']);
     }

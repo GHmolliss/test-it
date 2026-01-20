@@ -13,9 +13,6 @@ use CException;
 use SubscriptionForm;
 use SubscriptionService;
 
-/**
- * Action для подписки на автора
- */
 class SubscribeAction extends AbstractAction
 {
     use EntityLoaderTrait;
@@ -52,7 +49,7 @@ class SubscribeAction extends AbstractAction
             if ($request->validate()) {
                 try {
                     $subscriptionService->subscribe($this->authorId, $request->phone);
-                    
+
                     $this->setFlash('success', 'Вы успешно подписались на новые книги автора ' . $author->full_name);
                     $this->redirect(['author/view', 'id' => $this->authorId]);
                     return;

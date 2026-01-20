@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfaces\Web\Actions;
 
+use CActiveRecord;
 use CHttpException;
 
 /**
@@ -29,14 +30,14 @@ trait EntityLoaderTrait
         int $id,
         string $notFoundMessage = 'Запись не найдена',
         array $with = []
-    ): \CActiveRecord {
-        /** @var \CActiveRecord $model */
+    ): CActiveRecord {
+        /** @var CActiveRecord $model */
         $model = $modelClass::model();
-        
+
         if (!empty($with)) {
             $model = $model->with($with);
         }
-        
+
         $entity = $model->findByPk($id);
 
         if ($entity === null) {

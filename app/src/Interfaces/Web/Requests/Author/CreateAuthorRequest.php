@@ -22,7 +22,7 @@ class CreateAuthorRequest extends AbstractRequest
     public static function fromPost(array $data): static
     {
         $request = new static();
-        
+
         // Если передано full_name, парсим его на части
         if (isset($data['full_name']) && !empty($data['full_name'])) {
             $parts = self::parseFullName(trim((string)$data['full_name']));
@@ -34,7 +34,7 @@ class CreateAuthorRequest extends AbstractRequest
             $request->last_name = trim((string)($data['last_name'] ?? ''));
             $request->middle_name = trim((string)($data['middle_name'] ?? ''));
         }
-        
+
         $request->biography = trim((string)($data['biography'] ?? ''));
 
         return $request;
@@ -46,7 +46,7 @@ class CreateAuthorRequest extends AbstractRequest
     private static function parseFullName(string $fullName): array
     {
         $parts = preg_split('/\s+/', $fullName, -1, PREG_SPLIT_NO_EMPTY);
-        
+
         return [
             'last_name' => $parts[0] ?? '',
             'first_name' => $parts[1] ?? '',

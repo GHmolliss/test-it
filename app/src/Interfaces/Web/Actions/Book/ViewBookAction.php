@@ -10,9 +10,6 @@ use Book;
 use BookService;
 use CController;
 
-/**
- * Action для просмотра одной книги
- */
 class ViewBookAction extends AbstractAction
 {
     use EntityLoaderTrait;

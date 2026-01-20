@@ -8,9 +8,6 @@ use App\Interfaces\Web\Actions\AbstractAction;
 use AuthorService;
 use Yii;
 
-/**
- * Action для отображения отчёта по топ-авторам
- */
 class IndexReportAction extends AbstractAction
 {
     public function run(): void

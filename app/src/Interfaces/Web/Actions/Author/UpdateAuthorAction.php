@@ -13,9 +13,6 @@ use AuthorService;
 use CController;
 use CException;
 
-/**
- * Action для обновления автора
- */
 class UpdateAuthorAction extends AbstractAction
 {
     use EntityLoaderTrait;
@@ -53,7 +50,7 @@ class UpdateAuthorAction extends AbstractAction
             if ($request->validate()) {
                 try {
                     $authorService->update($author, $request->toArray());
-                    
+
                     $this->setFlash('success', 'Автор успешно обновлён');
                     $this->redirect(['author/view', 'id' => $author->id]);
                     return;

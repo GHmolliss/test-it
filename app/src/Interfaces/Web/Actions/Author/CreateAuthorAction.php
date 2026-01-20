@@ -10,9 +10,6 @@ use AuthorForm;
 use AuthorService;
 use CException;
 
-/**
- * Action для создания автора
- */
 class CreateAuthorAction extends AbstractAction
 {
     public function run(): void
@@ -32,7 +29,7 @@ class CreateAuthorAction extends AbstractAction
             if ($request->validate()) {
                 try {
                     $authorService->create($request->toArray());
-                    
+
                     $this->setFlash('success', 'Автор успешно добавлен');
                     $this->redirect(['author/index']);
                     return;

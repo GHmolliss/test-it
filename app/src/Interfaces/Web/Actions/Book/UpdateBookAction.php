@@ -14,9 +14,6 @@ use BookService;
 use CController;
 use CException;
 
-/**
- * Action для обновления книги
- */
 class UpdateBookAction extends AbstractAction
 {
     use EntityLoaderTrait;
@@ -35,7 +32,7 @@ class UpdateBookAction extends AbstractAction
 
         /** @var BookService $bookService */
         $bookService = $this->getService(BookService::class);
-        
+
         /** @var AuthorService $authorService */
         $authorService = $this->getService(AuthorService::class);
 
@@ -66,7 +63,7 @@ class UpdateBookAction extends AbstractAction
                         $request->getAuthorIds(),
                         $request->getCoverFile()
                     );
-                    
+
                     $this->setFlash('success', 'Книга успешно обновлена');
                     $this->redirect(['book/view', 'id' => $book->id]);
                     return;

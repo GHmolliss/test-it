@@ -10,9 +10,6 @@ use Author;
 use AuthorService;
 use CController;
 
-/**
- * Action для удаления автора
- */
 class DeleteAuthorAction extends AbstractAction
 {
     use EntityLoaderTrait;
@@ -39,7 +36,7 @@ class DeleteAuthorAction extends AbstractAction
         );
 
         $authorService->delete($author);
-        
+
         $this->setFlash('success', 'Автор удалён');
         $this->redirect(['author/index']);
     }

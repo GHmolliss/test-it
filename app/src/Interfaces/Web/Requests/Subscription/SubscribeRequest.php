@@ -20,7 +20,7 @@ class SubscribeRequest extends AbstractRequest
     public static function fromPost(array $data, int $authorId): self
     {
         $request = new self();
-        
+
         $request->author_id = $authorId;
         $request->phone = trim((string)($data['phone'] ?? ''));
 

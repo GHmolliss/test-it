@@ -9,9 +9,6 @@ use App\Interfaces\Web\Actions\EntityLoaderTrait;
 use Author;
 use CController;
 
-/**
- * Action для просмотра одного автора
- */
 class ViewAuthorAction extends AbstractAction
 {
     use EntityLoaderTrait;

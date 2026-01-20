@@ -7,9 +7,6 @@ namespace App\Interfaces\Web\Actions\Site;
 use App\Interfaces\Web\Actions\AbstractAction;
 use Yii;
 
-/**
- * Action для отображения страницы ошибки
- */
 class ErrorAction extends AbstractAction
 {
     public function run(): void

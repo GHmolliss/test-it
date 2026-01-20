@@ -22,7 +22,7 @@ class RegisterRequest extends AbstractRequest
     public static function fromPost(array $data): self
     {
         $request = new self();
-        
+
         $request->name = trim((string)($data['name'] ?? ''));
         $request->phone = trim((string)($data['phone'] ?? ''));
         $request->password = (string)($data['password'] ?? '');

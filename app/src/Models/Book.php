@@ -64,6 +64,7 @@ class Book extends CActiveRecord
         if ($this->isNewRecord) {
             $this->created_at = date('Y-m-d H:i:s');
         }
+
         $this->updated_at = date('Y-m-d H:i:s');
 
         return parent::beforeSave();

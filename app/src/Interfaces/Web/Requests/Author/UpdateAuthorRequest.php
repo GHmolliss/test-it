@@ -31,7 +31,7 @@ class UpdateAuthorRequest extends CreateAuthorRequest
     public static function fromAuthor(Author $author): self
     {
         $request = new self();
-        
+
         $request->author = $author;
         $request->first_name = $author->first_name;
         $request->last_name = $author->last_name;

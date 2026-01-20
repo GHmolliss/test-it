@@ -11,9 +11,6 @@ use BookForm;
 use BookService;
 use CException;
 
-/**
- * Action для создания книги
- */
 class CreateBookAction extends AbstractAction
 {
     public function run(): void
@@ -22,7 +19,7 @@ class CreateBookAction extends AbstractAction
 
         /** @var BookService $bookService */
         $bookService = $this->getService(BookService::class);
-        
+
         /** @var AuthorService $authorService */
         $authorService = $this->getService(AuthorService::class);
 
@@ -44,7 +41,7 @@ class CreateBookAction extends AbstractAction
                         $request->getAuthorIds(),
                         $request->getCoverFile()
                     );
-                    
+
                     $this->setFlash('success', 'Книга успешно добавлена');
                     $this->redirect(['book/index']);
                     return;

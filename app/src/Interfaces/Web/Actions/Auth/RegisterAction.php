@@ -11,9 +11,6 @@ use CException;
 use RegisterForm;
 use Yii;
 
-/**
- * Action для регистрации
- */
 class RegisterAction extends AbstractAction
 {
     public function run(): void

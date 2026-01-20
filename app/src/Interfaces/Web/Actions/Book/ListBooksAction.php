@@ -7,18 +7,15 @@ namespace App\Interfaces\Web\Actions\Book;
 use App\Interfaces\Web\Actions\AbstractAction;
 use BookService;
 
-/**
- * Action для отображения списка книг
- */
 class ListBooksAction extends AbstractAction
 {
     public function run(): void
     {
         /** @var BookService $bookService */
         $bookService = $this->getService(BookService::class);
-        
+
         $dataProvider = $bookService->getDataProvider();
-        
+
         $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);

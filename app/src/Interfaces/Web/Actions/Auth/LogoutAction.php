@@ -7,16 +7,13 @@ namespace App\Interfaces\Web\Actions\Auth;
 use App\Interfaces\Web\Actions\AbstractAction;
 use AuthService;
 
-/**
- * Action для выхода из системы
- */
 class LogoutAction extends AbstractAction
 {
     public function run(): void
     {
         $authService = $this->getService(AuthService::class);
         $authService->logout();
-        
+
         $this->redirect(['site/index']);
     }
 }
