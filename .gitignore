@@ -1,0 +1,54 @@
+# Composer dependencies
+/app/src/vendor/
+/composer.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Runtime files and logs
+/app/Runtime/*
+!/app/Runtime/.gitkeep
+*.log
+
+# Uploaded files
+/app/www/uploads/*
+!/app/www/uploads/.gitkeep
+
+# Assets
+/app/www/assets/*
+!/app/www/assets/.gitkeep
+
+# IDE and editor files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.phpstorm.meta.php
+_ide_helper.php
+
+# System files
+Thumbs.db
+.directory
+
+# OS-specific
+.AppleDouble
+.LSOverride
+*.bak
+
+# Node modules (if using npm)
+/node_modules/
+/npm-debug.log
+
+# Database
+*.sqlite
+*.db
+
+# Temporary files
+*.tmp
+*.temp
