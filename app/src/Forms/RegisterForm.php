@@ -17,7 +17,7 @@ class RegisterForm extends CFormModel
             ['phone', 'length', 'max' => 20],
             ['phone', 'PhoneValidator'],
             ['password', 'length', 'min' => 6],
-            ['password_confirm', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают'],
+            ['password_confirm', 'compare', 'compareAttribute' => 'password', 'operator' => '==', 'message' => 'Пароли не совпадают'],
         ];
     }
 

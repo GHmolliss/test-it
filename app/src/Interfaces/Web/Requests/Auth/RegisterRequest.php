@@ -14,7 +14,7 @@ class RegisterRequest extends AbstractRequest
     public string $name = '';
     public string $phone = '';
     public string $password = '';
-    public string $password_repeat = '';
+    public string $password_confirm = '';
 
     /**
      * Создание из POST-данных
@@ -26,7 +26,7 @@ class RegisterRequest extends AbstractRequest
         $request->name = trim((string)($data['name'] ?? ''));
         $request->phone = trim((string)($data['phone'] ?? ''));
         $request->password = (string)($data['password'] ?? '');
-        $request->password_repeat = (string)($data['password_repeat'] ?? '');
+        $request->password_confirm = (string)($data['password_confirm'] ?? '');
 
         return $request;
     }
@@ -42,7 +42,7 @@ class RegisterRequest extends AbstractRequest
             'name' => 'Имя',
             'phone' => 'Телефон',
             'password' => 'Пароль',
-            'password_repeat' => 'Повтор пароля',
+            'password_confirm' => 'Повтор пароля',
         ];
     }
 
@@ -68,8 +68,8 @@ class RegisterRequest extends AbstractRequest
             $this->addError('password', 'Пароль должен быть не менее 6 символов');
         }
 
-        if ($this->password !== $this->password_repeat) {
-            $this->addError('password_repeat', 'Пароли не совпадают');
+        if ($this->password !== $this->password_confirm) {
+            $this->addError('password_confirm', 'Пароли не совпадают');
         }
 
         return empty($this->errors);

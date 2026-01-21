@@ -7,7 +7,23 @@ class AuthorService
     public function create(array $data): Author
     {
         $author = new Author();
-        $author->attributes = $data;
+
+        // Если переданы части имени, собираем full_name
+        if (isset($data['first_name']) || isset($data['last_name']) || isset($data['middle_name'])) {
+            $fullNameParts = [];
+            if (!empty($data['last_name'])) {
+                $fullNameParts[] = $data['last_name'];
+            }
+            if (!empty($data['first_name'])) {
+                $fullNameParts[] = $data['first_name'];
+            }
+            if (!empty($data['middle_name'])) {
+                $fullNameParts[] = $data['middle_name'];
+            }
+            $author->full_name = implode(' ', $fullNameParts);
+        } else {
+            $author->attributes = $data;
+        }
 
         if (!$author->save()) {
             throw new CException('Ошибка сохранения автора');
